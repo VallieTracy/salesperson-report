@@ -16,13 +16,19 @@ for line in f:
     # Split the line at '|' character and store it in a new variable 'entries'
     entries = line.split('|')
 
+    # Definig the salespeople as entries at index 0 and placing them in a variable called salesperson
+    # Similar for melons, and changing data type to integer
     salesperson = entries[0]
     melons = int(entries[2])
 
+    # If the salesperson is already in salespeople list created above:
     if salesperson in salespeople:
+        # Locating the index of salesperson within salespeople list created above and storing in variable called 'position'
         position = salespeople.index(salesperson)
-
+        # Using position, finding the corresponding position in melons_sold list and adding melons value to it
         melons_sold[position] += melons
+    
+    # Otherwise, add the salesperson to salespeople list created above and similarly for melons_sold
     else:
         salespeople.append(salesperson)
         melons_sold.append(melons)
